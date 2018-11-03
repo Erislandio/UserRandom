@@ -1,32 +1,239 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+li{
+  list-style: none;
+}
+
+
+.loader {
+  border: 8px solid #f3f3f3;
+  /* Light grey */
+  border-top: 8px solid #333;
+  /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
   text-align: center;
+  position: relative;
+  top: 250px;
+  margin: 0 auto;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+
+  100% {
     transform: rotate(360deg);
   }
+}
+
+
+.header {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  background: #2980b9;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1.user-random {
+  color: #fff;
+  font-size: 20px;
+}
+
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 26px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-1px, 6px);
+  transform: rotate(-45deg) translate(-1px, 6px);
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-2px, -8px);
+  transform: rotate(45deg) translate(-2px, -8px);
+}
+
+.menu {
+  position: fixed;
+  width: 80%;
+  height: 100%;
+  z-index: 100;
+  left: 0px;
+  background: #3498db;
+  top: 0px;
+  padding: 50px 25px 120px;
+  transform: translateX(-100%);
+  transition: all .3s ease-in-out;
+}
+
+.open {
+  transform: none;
+}
+
+.menu ul li {
+  list-style: none;
+  padding: 10px 0px;
+  border-bottom: 1px solid #2980b9;
+  position: relative;
+  color: #2f2f22;
+}
+
+.menu ul li:before {
+  content: "";
+  width: 0px;
+  height: 10px;
+  border-bottom: solid 6px #2980b9;
+  border-left: solid 6px transparent;
+  border-right: solid 6px transparent;
+  transform: rotate(90deg);
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 13px;
+
+}
+
+.img.logo {
+  width: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.menu .logo {
+  padding-bottom: 40px;
+}
+
+.logo img {
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  border-radius: 50%;
+}
+
+.user-info {
+  width: 90%;
+  display: block;
+  text-align: center;
+  padding: 30px;
+  -webkit-box-shadow: -1px 7px 59px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 7px 59px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 7px 59px -10px rgba(0, 0, 0, 0.75);
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-top: 150px;
+  position: relative;
+  background: #ecf0f1;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.avatar img {
+  border-radius: 50%;
+}
+
+.user-name h2 {
+  color: #1abc9c;
+  font-size: 20px;
+  font-weight: normal;
+
+}
+
+.user-name {
+  margin-top: 50px;
+}
+
+p.email {
+  padding-top: 7px;
+}
+
+.social-btn {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.social-btn button {
+  max-width: 115px;
+  width: 100%;
+  padding: 5px 0px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+button.btn-f{
+  background: #2ecc71;
+}
+
+button.btn-m {
+  background: #e74c3c;
+}
+
+.user-desc {
+  display: block;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.user-desc ul li {
+  padding: 15px 0px;
+  border-bottom: 1px solid #dedeed;
+}
+
+.user-desc ul li span {
+  display: block;
+  font-size: 24px;
+}
+
+button.another {
+  background: #3498db;
+  width: 100%;
+  padding: 10px 0px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  margin-top: 40px;
 }
